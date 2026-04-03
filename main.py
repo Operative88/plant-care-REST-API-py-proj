@@ -16,3 +16,7 @@ TEMP_DATABASE = [
 @app.get("/")
 def read_root():
     return {"message": "witaj w plantcare API"}
+
+@app.get("/plants")
+def get_all_plants():
+    return {"plants": TEMP_DATABASE}
