@@ -12,3 +12,7 @@ TEMP_DATABASE = [
     {"id": 1, "name": "monstera dziurawa", "location": "salon", "watering_frequency_data": 7},
     {"id": 2, "name": "skrzydłokwiat", "location": "sypialnia", "watering_frequency_days": 4}
 ]
+
+@app.get("/")
+def read_root():
+    return {"message": "witaj w plantcare API"}
