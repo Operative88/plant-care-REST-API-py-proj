@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-
 #instancja aplikacji
 app = FastAPI(title="PlantCare API")
 
@@ -19,9 +18,15 @@ def get_all_plants():
 
 @app.post("/plants", response_model=Plant)
 def create_plant(plant: Plant):
-    #sprawdzenie czy roślina o tym id już istnieje
     if any(p.id == plant.id for p in TEMP_DATABASE):
-        raise HTTPException(status_code=400, detail="Roślina o tym ID już istnieje")
+        raise HTTPException(status_code=400, detail="Roślina o danym id już istnieje")
     
     TEMP_DATABASE.append(plant)
     return plant
+
+@app.get("/plants/{plant_id}", response_model=Plant)
+def get_plant(plant_id: int):
+    if any(p.id == plant_id for p in TEMP_DATABASE): return plant_id
+    else: raise HTTPException(status_code=404, detail="Nie znaleziono rośliny o podanym id")
+    
+        
