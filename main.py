@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List, Optional
+
 
 #instancja aplikacji
 app = FastAPI(title="PlantCare API")
@@ -11,9 +11,9 @@ class Plant(BaseModel):
     location: str
     watering_frequency_days: int
 
-TEMP_DATABASE: List[Plant] = []
+TEMP_DATABASE: list[Plant] = []
 
-@app.get("/plants", response_model=List[Plant])
+@app.get("/plants", response_model=list[Plant])
 def get_all_plants():
     return TEMP_DATABASE
 
