@@ -26,7 +26,9 @@ def create_plant(plant: Plant):
 
 @app.get("/plants/{plant_id}", response_model=Plant)
 def get_plant(plant_id: int):
-    if any(p.id == plant_id for p in TEMP_DATABASE): return plant_id
-    else: raise HTTPException(status_code=404, detail="Nie znaleziono rośliny o podanym id")
-    
+    for plant in TEMP_DATABASE:
+        if plant.id == plant_id: return plant
+        
+        raise HTTPException(status_code=404, detail="Nie znaleziono rośliny o podanym id")
+
         
