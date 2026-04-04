@@ -1,22 +1,28 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List, Optional
+
 
 #instancja aplikacji
+app = FastAPI(title="PlantCare API")
 
-api = FastAPI(
-    title="plantcare API",
-    description="API do zarządzania domowymi roślinami",
-    version="0.1.0"
-)
+class Plant(BaseModel):
+    id: int
+    name: str
+    location: str
+    watering_frequency_days: int
 
-TEMP_DATABASE = [
-    {"id": 1, "name": "monstera dziurawa", "location": "salon", "watering_frequency_data": 7},
-    {"id": 2, "name": "skrzydłokwiat", "location": "sypialnia", "watering_frequency_days": 4}
-]
+TEMP_DATABASE = List(Plant) = []
 
-@app.get("/")
-def read_root():
-    return {"message": "witaj w plantcare API"}
-
-@app.get("/plants")
+@app.get("/plants", response_model=List[Plant])
 def get_all_plants():
-    return {"plants": TEMP_DATABASE}
+    return TEMP_DATABASE
+
+@app.post("/plants", response_model=Plant)
+def create_plant(plant: Plant):
+    #sprawdzenie czy roślina o tym id już istnieje
+    if any(p.id == plant.id for p in TEMP_DATABASE):
+        raise HTTPException(status_code=400, detail="Roślina o tym ID już istnieje")
+    
+    TEMP_DATABASE.append(plant)
+    return plant
