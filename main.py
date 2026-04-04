@@ -3,4 +3,4 @@ from sqlalchemy.orm import Session
 from . import models, schemas, database
 
 #tabela w bazie danych
-models.Base.metadata.create_all
+models.Base.metadata.create_all(bind=database.engine)
