@@ -59,3 +59,18 @@ pip install -r requirements.txt
 ```bash
 uvicorn main:app --reload
 ```
+
+## API Usage & Documentation
+Once the server is running, you can access the interacive documentation at:
+http://127.0.0.1:8000/docs
+
+Key Endpoints:
+• GET /plants - List all plants.
+
+• POST /plants - Add a new plant (Validates input data).
+
+• GET /plants/{id} - Get details of a specific plant.
+
+• POST /plants/{id}/water - Update the watering timestamp for a plant.
+
+• DELETE /plants/{id} - Remove a plant from the database.
