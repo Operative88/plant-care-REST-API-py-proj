@@ -36,3 +36,26 @@ Follow these steps to get the project up and running on your local machine.
 ```bash
 git clone [https://github.com/TWOJA-NAZWA-UZYTKOWNIKA/plantcare-api.git](https://github.com/TWOJA-NAZWA-UZYTKOWNIKA/plantcare-api.git)
 cd plantcare-api
+```
+
+### 2. Create a virtual environment
+Windows:
+```bash   
+python -m venv venv
+venv\Scripts\activate
+```
+macOS / Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the application
+```bash
+uvicorn main:app --reload
+```
