@@ -36,3 +36,13 @@ def delete_plant(plant_id: int, db: Session = Depends(get_db)):
     db.delete(db_plant)
     db.commit()
     return {"message": f"Roślina o ID {plant_id} została usunięta"}
+
+@app.post("/plants/{plant_id}/water")
+def water_plant(plant_id: int, db: Session = Depends(get_db)):
+    db_plant = db.query(models.PlantModel).filter(models.PlantModel.id == plant_id).first()
+    if not db_plant:
+        raise HTTPException(status_code=404, detail="Roślina nie istnieje")
+    
+    db_plant.last_watered = date.today()
+    db.commit()
+    return {"message": "Roślina została podlana!", "date": db_plant.last_watered}
