@@ -1,6 +1,6 @@
 #  PlantCare API
 
-A modern REST API built with **Python** and **FastAPI** to help you manage your home jungle. Track your plants, their locations, and never forget about watering again!
+A modern REST API built with **Python** and **FastAPI** to help you manage your home jungle. Track your plants, their locations, and never forget about watering again.
 
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-05998b)
