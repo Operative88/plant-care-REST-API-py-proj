@@ -83,3 +83,12 @@ plantcare-api/
 ├── database.py      # Database connection & session setup
 ├── requirements.txt # Project dependencies
 └── README.md        # Project documentation
+
+## Future Improvements
+• Implement a "Thirsty Plants" endpoint (filtering by watering frequency).
+
+• User authentication (JWT).
+
+• Image upload for each plant.
+
+• Integration with a weather API to adjust watering schedules.
