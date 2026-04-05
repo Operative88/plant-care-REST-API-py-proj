@@ -74,3 +74,12 @@ Key Endpoints:
 • POST /plants/{id}/water - Update the watering timestamp for a plant.
 
 • DELETE /plants/{id} - Remove a plant from the database.
+
+## Project structure
+plantcare-api/
+├── main.py          # Application entry point & API routes
+├── models.py        # SQLAlchemy database models
+├── schemas.py       # Pydantic data validation schemas
+├── database.py      # Database connection & session setup
+├── requirements.txt # Project dependencies
+└── README.md        # Project documentation
