@@ -1,4 +1,4 @@
-# 🌿 PlantCare API
+#  PlantCare API
 
 A modern REST API built with **Python** and **FastAPI** to help you manage your home jungle. Track your plants, their locations, and never forget about watering again!
 
@@ -8,7 +8,7 @@ A modern REST API built with **Python** and **FastAPI** to help you manage your 
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Full CRUD:** Create, Read, Update, and Delete plants in your collection.
 - **Persistent Storage:** Data is stored in a local SQLite database using SQLAlchemy ORM.
@@ -18,7 +18,7 @@ A modern REST API built with **Python** and **FastAPI** to help you manage your 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Language:** Python
 * **Framework:** [FastAPI](https://fastapi.tiangolo.com/)
@@ -28,7 +28,7 @@ A modern REST API built with **Python** and **FastAPI** to help you manage your 
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 Follow these steps to get the project up and running on your local machine.
 
